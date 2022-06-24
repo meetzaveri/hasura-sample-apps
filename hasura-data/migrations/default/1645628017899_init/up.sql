@@ -7,6 +7,10 @@ CREATE TABLE public.dishes (
     price numeric NOT NULL,
     available boolean NOT NULL
 );
+CREATE TABLE public.test (
+    id integer NOT NULL,
+    name text NOT NULL,
+);
 CREATE SEQUENCE public.dishes_id_seq
     AS integer
     START WITH 1
