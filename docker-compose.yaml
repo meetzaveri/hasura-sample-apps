@@ -38,7 +38,7 @@ services:
     environment:
       # the postgres database where hasura metadata will be stored
       # HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres:5432/hasurametadata
-      HASURA_GRAPHQL_DATABASE_URL: postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres:5432/userdb
+      PG_DATABASE_URL: postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres:5432/userdb
       # enable the console served by server
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
       # enable debugging mode. It is recommended to disable this in production
