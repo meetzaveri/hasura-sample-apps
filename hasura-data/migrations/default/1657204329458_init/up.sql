@@ -11,10 +11,7 @@ CREATE SEQUENCE public.test_public_pg_id_seq
     NO MAXVALUE
     CACHE 1;
 ALTER SEQUENCE public.test_public_pg_id_seq OWNED BY public.test_public_pg.id;
-ALTER TABLE ONLY public.test_public_pg ALTER COLUMN id SET DEFAULT nextval('public.test_public_pg_id_seq'::regclass);
-ALTER TABLE ONLY public.test_public_pg
-    ADD CONSTRAINT test_public_pg_pkey PRIMARY KEY (id);
-    CREATE TABLE public.users (
+CREATE TABLE public.users (
     id integer NOT NULL,
     name text NOT NULL,
     age numeric NOT NULL
@@ -27,7 +24,9 @@ CREATE SEQUENCE public.users_id_seq
     NO MAXVALUE
     CACHE 1;
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
+ALTER TABLE ONLY public.test_public_pg ALTER COLUMN id SET DEFAULT nextval('public.test_public_pg_id_seq'::regclass);
 ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+ALTER TABLE ONLY public.test_public_pg
+    ADD CONSTRAINT test_public_pg_pkey PRIMARY KEY (id);
 ALTER TABLE ONLY public.users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
-
