@@ -27,7 +27,7 @@ services:
   graphql-engine:
     container_name: graphql-engine
     restart: on-failure
-    image: hasura/graphql-engine:v2.7.0
+    image: hasura/graphql-engine:v2.8.3
     ports:
       - "8080:8080"
     depends_on:
@@ -38,6 +38,7 @@ services:
     environment:
       # the postgres database where hasura metadata will be stored
       # HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres:5432/hasurametadata
+      HASURA_GRAPHQL_DATABASE_URL: postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres:5432/userdb
       PG_DATABASE_URL: postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres:5432/userdb
       # enable the console served by server
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
