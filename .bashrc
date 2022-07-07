@@ -1,0 +1,5 @@
+export POSTGRES_PASSWORD=postgres
+export POSTGRES_USERNAME=postgres
+export PGADMIN_USERNAME=admin12@mailinator.com
+export PGADMIN_PASSWORD=admin
+export HASURA_GRAPHQL_ADMIN_SECRET=secret
