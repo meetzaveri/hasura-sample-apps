@@ -27,7 +27,7 @@ services:
   graphql-engine:
     container_name: graphql-engine
     restart: on-failure
-    image: hasura/graphql-engine:v2.8.3
+    image: hasura/graphql-engine:v2.2.2
     ports:
       - "8080:8080"
     depends_on:
