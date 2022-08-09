@@ -6,9 +6,19 @@
       database_url:
         from_env: PG_DATABASE_URL
       isolation_level: read-committed
+
       pool_settings:
         connection_lifetime: 600
         retries: 1
         idle_timeout: 180
         max_connections: 50
+    read_replicas:
+      [
+        {
+          "database_url": { "from_env": "PG_DATABASE_URL" },
+          "isolation_level": "read-committed",
+          "pool_settings": { "connection_lifetime": 600 },
+          "use_prepared_statements": false,
+        },
+      ]
   tables: "!include default/tables/tables.yaml"
