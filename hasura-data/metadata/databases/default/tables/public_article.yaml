@@ -1,0 +1,14 @@
+table:
+    schema: public
+    name: article
+event_triggers:
+    - name: update_contract_alt
+      definition:
+          enable_manual: false
+          insert:
+              columns: "*"
+      retry_conf:
+          num_retries: 0
+          interval_sec: 10
+          timeout_sec: 60
+      webhook: http://httpbin.post/org
