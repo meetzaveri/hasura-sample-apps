@@ -1,0 +1,3 @@
+table:
+  name: log_generic
+  schema: public

@@ -1,6 +1,16 @@
-actions: []
+actions:
+  - name: submitUserInfo
+    definition:
+      kind: asynchronous
+      handler: http://localhost:3000/api/hasura-action-handler
+      forward_client_headers: true
+      headers:
+        - name: x-api-key
+          value: wufrmUisk89_22dk
 custom_types:
   enums: []
-  input_objects: []
-  objects: []
+  input_objects:
+    - name: SampleInput
+  objects:
+    - name: SampleOutput
   scalars: []

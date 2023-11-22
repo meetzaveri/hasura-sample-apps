@@ -1,0 +1,15 @@
+type Mutation {
+  submitUserInfo(
+    variables: SampleInput!
+  ): SampleOutput
+}
+
+input SampleInput {
+  username: String!
+  email: String!
+}
+
+type SampleOutput {
+  accessToken: String!
+}
+

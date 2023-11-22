@@ -1,0 +1,10 @@
+table:
+  name: article
+  schema: _colpermissions
+insert_permissions:
+  - role: user
+    permission:
+      check: {}
+      columns:
+        - editor_notes
+    comment: ""
