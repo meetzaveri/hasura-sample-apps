@@ -33,8 +33,8 @@ services:
     depends_on:
       - postgres
     volumes:
-      - ./v3/migrations:/hasura-migrations
-      - ./v3/metadata:/hasura-metadata
+      - ./hasura/migrations:/hasura-migrations
+      - ./hasura/metadata:/hasura-metadata
     environment:
       # the postgres database where hasura metadata will be stored
       # HASURA_GRAPHQL_METADATA_DATABASE_URL: postgres://${POSTGRES_USERNAME}:${POSTGRES_PASSWORD}@postgres:5432/hasurametadata
