@@ -1,0 +1,3 @@
+function:
+  name: get_tracks_info
+  schema: public

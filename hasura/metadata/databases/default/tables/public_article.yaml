@@ -1,0 +1,12 @@
+table:
+  name: article
+  schema: public
+select_permissions:
+  - role: user
+    permission:
+      columns:
+        - id
+        - rating
+        - title
+      filter: {}
+    comment: ""

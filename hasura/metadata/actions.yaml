@@ -1,6 +1,99 @@
-actions: []
+actions:
+  - name: action_dynamic_URL_based_on_condition
+    definition:
+      kind: synchronous
+      handler: http://host.docker.internal:3000/api/hasura-action-handler
+      headers:
+        - name: x-api-key
+          value: wufrmUisk89_22dk
+      timeout: 60
+      request_transform:
+        body:
+          action: transform
+          template: '{"username": {{$body.input.username}}}'
+        method: POST
+        query_params: {}
+        template_engine: Kriti
+        url: '{{$base_url}}/{{$body.input.email}}'
+        version: 2
+    comment: Custom action to create user
+  - name: create_user_with_dynamic_URL_parameter
+    definition:
+      kind: synchronous
+      handler: http://host.docker.internal:3000/api
+      forward_client_headers: true
+      headers:
+        - name: x-api-key
+          value: wufrmUisk89_22dk
+      timeout: 60
+      request_transform:
+        body:
+          action: transform
+          template: '{"username": {{$body.input.username}}}'
+        method: POST
+        query_params: {}
+        template_engine: Kriti
+        url: '{{$base_url}}/{{$body.input.email}}'
+        version: 2
+    comment: Custom action to create user
+  - name: create_user_with_raw_string
+    definition:
+      kind: synchronous
+      handler: http://host.docker.internal:3000/api/hasura-action-handler
+      timeout: 60
+      request_transform:
+        body: '{"username": {{$body.input.username}}}'
+        method: POST
+        query_params: '{{concat(body.input)}}'
+        template_engine: Kriti
+        url: '{{$base_url}}'
+        version: 1
+    comment: Custom action to create user
+  - name: getUserEmail
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:3000/api/hasura-action-handler
+      headers:
+        - name: x-api-key
+          value: wufrmUisk89_22dk
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+              "user_email": {{$body.input?.email ?? "johndoe@example.com"}}
+            }
+        template_engine: Kriti
+        version: 2
+  - name: getUserInfo
+    definition:
+      kind: ""
+      handler: http://host.docker.internal:3000/api/hasura-action-handler
+      forward_client_headers: true
+      headers:
+        - name: x-api-key
+          value: wufrmUisk89_22dk
+      timeout: 900
+      request_transform:
+        body:
+          action: transform
+          template: |-
+            {
+                "name": {{$body.input.variables.email}}
+            }
+        template_engine: Kriti
+        version: 2
+  - name: testAction
+    definition:
+      kind: synchronous
+      handler: http://localhost:3000/api/test-action-handler
 custom_types:
   enums: []
-  input_objects: []
-  objects: []
+  input_objects:
+    - name: SampleInput
+    - name: GetUserInfoInput
+  objects:
+    - name: SampleOutput
+    - name: GetUserInfoOutput
+    - name: AddResult
   scalars: []

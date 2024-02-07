@@ -1,0 +1,3 @@
+table:
+  name: temp_logs
+  schema: public
